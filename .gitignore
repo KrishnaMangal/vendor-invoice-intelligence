@@ -1,0 +1,26 @@
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Build & Model output (optional, depending on if you want to push models)
+# models/
+data/
+migrate_db.py
