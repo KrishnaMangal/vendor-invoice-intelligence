@@ -1,80 +1,98 @@
-# Vendor Invoice Intelligence Portal 📦
+# Vendor Invoice Intelligence Portal
 
-An automated intelligence portal and machine learning pipeline designed to improve cost forecasting and streamline approvals by predicting freight costs and flagging abnormal vendor invoices for manual review.
+An end-to-end ML project for vendor invoice intelligence with two modules:
 
-## 🚀 Features
+1. Freight cost prediction
+2. Invoice risk flagging for manual review
 
-The application consists of two main Machine Learning modules:
+The project includes training pipelines, inference modules, Jupyter notebooks, and a Streamlit app.
 
-1. **Freight Cost Prediction**
-   - **Objective:** Predict the freight cost for vendor invoices based on the quantity and invoice total (Dollars) to improve cost forecasting.
-   - **How it works:** Provides an estimated freight cost using a trained machine learning model, helping teams gauge standard expected shipping fees.
+## Features
 
-2. **Invoice Risk Flagging** 🚨
-   - **Objective:** Classify whether a vendor invoice should be auto-approved or flagged for manual review due to abnormal patterns.
-   - **How it works:** Evaluates the Purchase Order (PO) quantities and dollars against the incoming Invoice quantities, dollars, and freight cost to detect inconsistencies or high-risk claims.
+1. Freight Cost Prediction
+1. Uses Quantity and Dollars as input
+1. Predicts Freight cost
 
-## 🛠️ tech Stack
+1. Invoice Risk Flagging
+1. Predicts if an invoice should be flagged for manual approval
+1. Uses PO and invoice behavior features
 
-- **Python** (Core Logic & Data Processing)
-- **Streamlit** (Interactive Web Dashboard UI)
-- **scikit-learn** (Machine Learning models)
-- **Pandas / NumPy** (Data Manipulation)
-- **Matplotlib / Seaborn** (Data Visualization in Jupyter Notebooks)
+## Tech Stack
 
-## 📂 Project Structure
+1. Python
+1. Streamlit
+1. scikit-learn
+1. Pandas
+1. SQLAlchemy
+1. PostgreSQL
 
-```
+## Project Structure
+
 .
-├── app.py                            # Main Streamlit web application
-├── inference/                        # Scripts for running model predictions
-│   ├── predict_freight.py            # Inference script for Freight Cost
-│   └── predict_invoice_flag.py       # Inference script for Invoice Risk
-├── models/                           # Serialized/saved Machine Learning models
-├── data/                             # Datasets used (consider keeping local/ignored on git)
-├── freight_exploration.ipynb         # EDA for Freight Prediction
-├── invoice_flagging.ipynb            # EDA and Model Training for Risk Flagging
-├── predicting_freight_cost.ipynb     # Model Training for Freight Prediction
-├── requirements.txt                  # Python dependencies
-└── .gitignore                        # Git ignore file
-```
+|- app.py
+|- Invoice_Flagging.ipynb
+|- Predicting_Freight_Cost.ipynb
+|- requirements.txt
+|- models/
+|- inference/
+| |- predict_freight.py
+| |- predict_invoice_flag.py
+|- freight_cost_prediction/
+| |- data_preprocessing.py
+| |- model_evaluation.py
+| |- train.py
+|- invoice_flagging/
+| |- data_preprocessing.py
+| |- model_evaluation.py
+| |- train.py
 
-## ⚙️ Installation & Setup
+## Setup
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/vendor-invoice-intelligence.git
-   cd vendor-invoice-intelligence
-   ```
+1. Clone repository
+   git clone <your-repo-url>
+   cd <your-project-folder>
 
-2. **Create and activate a virtual environment (optional but recommended):**
-   ```bash
+2. Create and activate virtual environment
    python -m venv .venv
-   
-   # Windows
+
+   Windows:
    .venv\Scripts\activate
-   # macOS/Linux
+
+   macOS/Linux:
    source .venv/bin/activate
-   ```
 
-3. **Install the required dependencies:**
-   ```bash
+3. Install dependencies
    pip install -r requirements.txt
-   ```
 
-## 🖥️ Running the Application
+## Train Models
 
-Once you have installed the required dependencies, run the Streamlit application using the following command:
+1. Freight model
+   python freight_cost_prediction/train.py
 
-```bash
-streamlit run app.py
-```
+2. Invoice flag model
+   python invoice_flagging/train.py
 
-The application will launch in your default web browser (typically at `http://localhost:8501`).
+## Run App
 
-## 🧠 Jupyter Notebooks & Model Details
-Feel free to explore the Jupyter Notebooks located in the root directory. They outline the entire data science pipeline including:
-- Exploratory Data Analysis (EDA)
-- Feature Engineering & Data Preprocessing
-- Algorithm Selection & Model Training (scikit-learn)
-- Evaluation Metrics
+1. Start Streamlit
+   streamlit run app.py
+
+2. Open in browser
+   http://localhost:8501
+
+If port 8501 is busy, run:
+streamlit run app.py --server.port 8502
+
+## Push to GitHub
+
+1. Check status
+   git status
+
+2. Add files
+   git add .
+
+3. Commit
+   git commit -m "Update README and project pipeline"
+
+4. Push
+   git push origin main
