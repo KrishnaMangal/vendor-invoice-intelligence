@@ -10,6 +10,11 @@ def load_model(model_path):
 
 def predict_freight_cost(input_data):
     model = load_model(MODEL_PATH)
-    input_df = pd.DataFrame([input_data])
+    input_df = pd.DataFrame([
+        {
+            "Dollars": input_data["Dollars"],
+            "Quantity": input_data["Quantity"],
+        }
+    ])
     prediction = model.predict(input_df)
     return round(prediction[0], 2)

@@ -18,8 +18,8 @@ selected_model = st.sidebar.radio("Choose Prediction Module", ["Freight Cost Pre
 
 if selected_model == "Freight Cost Prediction":
     st.subheader("Predicting Freight Cost")
-    st.markdown("Objective: Predict freight cost for vendor invoice using Quantity and Dollars to improve cost forecasting.")
-    
+    st.markdown("Objective: Predict freight cost for vendor invoice using quantity and invoice dollars to improve cost forecasting.")
+
     col1, col2 = st.columns(2)
     with col1:
         quantity = st.number_input("Quantity", min_value=1, value=100)

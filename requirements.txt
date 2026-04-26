@@ -5,3 +5,5 @@ scikit-learn
 ipykernel
 streamlit
 python-dotenv
+sqlalchemy
+psycopg2-binary
